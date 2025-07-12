@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <style>
+        #list-users {
+            max-width: 900px;
+            margin: 40px auto;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #list-users table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #list-users thead {
+            background-color: #007BFF;
+            color: #fff;
+            text-align: left;
+        }
+
+        #list-users th,
+        #list-users td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        #list-users tbody tr:hover {
+            background-color: #f1f8ff;
+            cursor: pointer;
+        }
+
+        #list-users th:first-child,
+        #list-users td:first-child {
+            width: 60px;
+            text-align: center;
+        }
+
+        #list-users td {
+            color: #333;
+        }
+
+        #list-users tbody tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="list-users">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>Manage Users</h1>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                + Add User
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add User</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="fullName" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="fullName" name="fullName">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="age" class="form-label">Age</label>
+                                    <input type="number" class="form-control" id="age" name="age">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="role" class="form-label">Role</label>
+                                    <select class="form-select" id="role" name="role">
+                                        <option value="admin">Admin</option>
+                                        <option value="user">User</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="add-user">Add User</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit User</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="fullName" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="fullNameEdit" name="fullName">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="emailEdit" name="email">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="age" class="form-label">Age</label>
+                                    <input type="number" class="form-control" id="ageEdit" name="age">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="passwordEdit" name="password">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="role" class="form-label">Role</label>
+                                    <select class="form-select" id="roleEdit" name="role">
+                                        <option value="admin">Admin</option>
+                                        <option value="user">User</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="edit-user">Edit User</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Created At</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tbody-users">
+            </tbody>
+        </table>
+    </div>
+</body>
+<script type="module">
+    import { getUsers, createUser, updateUser } from "./configFirebase.js";
+    renderUsers();
+    async function renderUsers() {
+        const users = await getUsers();
+        const tbodyUsers = document.getElementById("tbody-users");
+        let html = "";
+        for (let i = 0; i < users.length; i++) {
+            const user = users[i];
+            html += `             
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td>${user.fullName}</td>
+                        <td>${user.email}</td>
+                        <td>${user.age}</td>
+                        <td>${user.createdAt.toDate().toLocaleDateString()}</td>
+                        <td>
+                            <button class="btn btn-primary edit-user" data-bs-toggle="modal" data-bs-target="#editUserModal">Edit</button>
+                        </td>
+                    </tr>
+            `;
+        }
+        tbodyUsers.innerHTML = html;
+        const editUsers = document.getElementsByClassName("edit-user");
+        for (let i = 0; i < editUsers.length; i++) {
+            editUsers[i].addEventListener("click", () => {
+                const user = users[i];
+                document.getElementById("fullNameEdit").value = user.fullName;
+                document.getElementById("emailEdit").value = user.email;
+                document.getElementById("ageEdit").value = user.age;
+                document.getElementById("passwordEdit").value = user.password;
+                document.getElementById("roleEdit").value = user.role;
+                const editUser = document.getElementById("edit-user");
+                editUser.addEventListener("click", async () => {
+                    const user = {
+                        fullName: document.getElementById("fullNameEdit").value,
+                        email: document.getElementById("emailEdit").value,
+                        age: document.getElementById("ageEdit").value,
+                        password: document.getElementById("passwordEdit").value,
+                        role: document.getElementById("roleEdit").value,
+                    }
+                    await updateUser(user);
+                    renderUsers();
+                });
+            });
+        }
+    }
+
+    const addUser = document.getElementById("add-user");
+    addUser.addEventListener("click", async () => {
+        const fullName = document.getElementById("fullName").value;
+        const email = document.getElementById("email").value;
+        const age = document.getElementById("age").value;
+        const password = document.getElementById("password").value;
+        const role = document.getElementById("role").value;
+        const user = {
+            fullName,
+            email,
+            age,
+            password,
+            role,
+            createdAt: new Date()
+        }
+        await createUser(user);
+        renderUsers();
+        const modal = document.getElementById("exampleModal");
+        const modalInstance = bootstrap.Modal.getInstance(modal);
+        modalInstance.hide();
+        modal.addEventListener("hidden.bs.modal", () => {
+            document.getElementById("fullName").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("age").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("role").value = "user";
+        });
+    });
+</script>
+
+</html>

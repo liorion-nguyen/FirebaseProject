@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Ảnh Firebase</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Upload & Xoá Ảnh Firebase Storage</h2>
+        
+        <!-- Upload Ảnh -->
+        <input type="file" id="fileInput">
+        <button id="uploadBtn">Upload</button>
+        
+        <!-- Xoá Ảnh bằng URL -->
+        <input type="text" id="deleteUrl" placeholder="Nhập URL ảnh cần xoá">
+        <button id="deleteBtn">Xoá Ảnh</button>
+
+        <p id="status"></p>
+        <img id="preview" src="" alt="Uploaded Image" style="display: none;">
+    </div>
+</body>
+<script type="module" src="index.js"></script>
+
+</html>

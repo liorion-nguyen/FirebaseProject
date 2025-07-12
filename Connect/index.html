@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Web App</title>
+</head>
+<body>
+    <h1>Firebase Web App</h1>
+    <button id="testFirebase">Kết Nối Firebase</button>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBaGTtD2xoQXvSXV82BHI7MmGYhD_I6vJI",
+            authDomain: "l-edu-cca65.firebaseapp.com",
+            projectId: "l-edu-cca65",
+            storageBucket: "l-edu-cca65.firebasestorage.app",
+            messagingSenderId: "94845436942",
+            appId: "1:94845436942:web:4acf422c12ea07e3fc685f",
+            measurementId: "G-ZKGRJP089H"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        console.log("Firebase đã kết nối thành công!");
+    </script>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>
